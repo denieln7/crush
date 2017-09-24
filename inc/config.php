@@ -18,8 +18,30 @@ $database = new Medoo([
     'server' => 'localhost',
     'username' => 'root',
     'password' => 'root'
-]);
+  ]);
 
-echo '<pre>';
-print_r( $database->info() );
-echo '</pre>';
+// $db = new PDO(
+//   "{$database}")
+
+// $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+// echo '<pre>';
+// print_r( $database->info() );
+// echo '</pre>';
+
+// global functions
+// require_once 'functions-general.php';
+// require_once 'functions-string.php';
+// require_once 'functions-post.php';
+
+// auth
+// require_once 'vendor/PHPAuth/languages/en_GB.php';
+// require_once 'vendor/PHPAuth/config.php';
+// require_once 'vendor/PHPAuth/auth.php';
+//
+// $auth_config = new config($db);
+// $auth = new Auth($db, $auth_config, $lang);
+//
+// var_dump( $auth_config );
+// var_dump( $auth );
