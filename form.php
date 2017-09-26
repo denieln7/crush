@@ -4,6 +4,7 @@ $_SESSION['message'] = '';
 $mysqli = new mysqli('localhost', 'root', 'root', 'crush');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
   //two passwords are equal to each other
   if ($_POST['password'] == $_POST['confirmpassword']) {
 
@@ -13,6 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $mysqli->real_escape_string($_POST['email']);
     $password = md5($_POST['password']); //md5 hash password security
     // $avatar_path = $mysqli->real_escape_string('image/'.$_FILES['avatar']['name']);
+
+
+        $_SESSION['username'] = $username;
 
 
         $sql = "INSERT INTO users (username, email, password)" . "VALUES ('$username','$email', '$password')";
@@ -25,13 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         else {
           $_SESSION['message'] = "User could not be added to the database!";
         }
+      }
+      else {
+        $_SESSION['message'] = "Two password do not match!";
+      }
 
   }
-  else {
-    $_SESSION['message'] = "Two password do not match!";
 
-  }
-}
+
 ?>
 
 <link href="//db.onlinewebfonts.com/c/a4e256ed67403c6ad5d43937ed48a77b?family=Core+Sans+N+W01+35+Light" rel="stylesheet" type="text/css"/>
